@@ -1,4 +1,6 @@
-const TeacherSvg = ({ width, height }) => {
+import { SvgProps } from '../svgTypes'
+
+const TeacherSvg = ({ width, height }: SvgProps) => {
   return (
     <svg
       id="a02f2390-8fa7-48a9-96f1-2ec5f63ecbc1"
