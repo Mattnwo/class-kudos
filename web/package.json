@@ -13,6 +13,7 @@
     ]
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.2",
     "@redwoodjs/auth": "1.4.1",
     "@redwoodjs/forms": "1.4.1",
     "@redwoodjs/router": "1.4.1",
@@ -20,5 +21,11 @@
     "prop-types": "15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "postcss-loader": "^7.0.0",
+    "tailwindcss": "^3.0.24"
   }
 }

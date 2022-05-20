@@ -11,7 +11,8 @@ import {
 import { useAuth } from '@redwoodjs/auth'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
-import { useEffect } from 'react'
+import { useEffect, Fragment } from 'react'
+import { Tab } from '@headlessui/react'
 
 const SignupPage = () => {
   const { isAuthenticated, signUp } = useAuth()
@@ -52,6 +53,16 @@ const SignupPage = () => {
             <header className="rw-segment-header">
               <h2 className="rw-heading rw-heading-secondary">Signup</h2>
             </header>
+            <Tab.Group defaultIndex={1}>
+              <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
+                <Tab>Student</Tab>
+                <Tab>Teacher</Tab>
+              </Tab.List>
+              <Tab.Panels>
+                <Tab.Panel>Content 1</Tab.Panel>
+                <Tab.Panel>Content 2</Tab.Panel>
+              </Tab.Panels>
+            </Tab.Group>
 
             <div className="rw-segment-main">
               <div className="rw-form-wrapper">
