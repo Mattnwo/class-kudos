@@ -18,7 +18,8 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(routes.home())
+      console.log('Is authenticated')
+      // navigate(routes.home())
     }
   }, [isAuthenticated])
 
@@ -97,7 +98,10 @@ const LoginPage = () => {
                   />
 
                   <div className="rw-forgot-link">
-                    <Link to={routes.forgotPassword()} className="rw-forgot-link">
+                    <Link
+                      to={routes.forgotPassword()}
+                      className="rw-forgot-link"
+                    >
                       Forgot Password?
                     </Link>
                   </div>

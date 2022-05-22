@@ -17,9 +17,6 @@ const HomePage = () => {
         ogUrl="https://www.classkudos.com"
         ogContentUrl="https://www.classkudos.com/ClassKudos.svg"
       />
-      <h1 className="text-center text-5xl font-bold pb-4">
-        Kudos = Happy Humans
-      </h1>
       {/* Welcome Text */}
       <section className="w-full h-full flex flex-col-reverse items-center md:flex-row my-12">
         <div className="px-4 md:ml-10 w-full md:w-2/3">
