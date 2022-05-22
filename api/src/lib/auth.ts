@@ -19,10 +19,20 @@ import { db } from './db'
  * seen if someone were to open the Web Inspector in their browser.
  */
 export const getCurrentUser = async (session) => {
-  return await db.user.findUnique({
+  const user = await db.user.findUnique({
     where: { id: session.id },
-    select: { id: true },
+    select: { id: true, firstName: true, lastName: true, points: true },
   })
+  // Lookup roles of user and create array of role strings
+  const roles = await db.userRole.findMany({
+    where: {
+      userId: user.id,
+    },
+    select: { role: true },
+  })
+  const rolesArray = roles.map((roleObj) => roleObj.role)
+  // return user with roles
+  return { ...user, roles: rolesArray }
 }
 
 /**

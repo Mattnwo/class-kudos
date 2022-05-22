@@ -22,7 +22,8 @@ const SignupPage = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(routes.home())
+      // navigate(routes.home())
+      console.log('logged in a rerouted in singup page')
     }
   }, [isAuthenticated])
 
