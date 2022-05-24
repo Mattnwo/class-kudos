@@ -39,18 +39,17 @@ export const Success = ({
   }
 
   return (
-    <>
+    <div className="pt-1">
       <Listbox
         value={currentGroup.name}
         onChange={(group) => changeGroup(group)}
       >
-        <Listbox.Button className="font-body relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-indigo-300 sm:text-sm">
-          <span className="block truncate">{currentGroup.name}</span>
+        <Listbox.Button className="font-body relative w-full cursor-default rounded-lg bg-indigo-600 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-indigo-300 sm:text-sm">
+          <span className="block truncate font-display text-lg text-white">
+            {currentGroup.name}
+          </span>
           <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-            <SelectorIcon
-              className="h-5 w-5 text-gray-400"
-              aria-hidden="true"
-            />
+            <SelectorIcon className="h-5 w-5 text-white" aria-hidden="true" />
           </span>
         </Listbox.Button>
         <Transition
@@ -64,7 +63,7 @@ export const Success = ({
               <Listbox.Option
                 key={index}
                 className={({ active }) =>
-                  `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                  `relative cursor-default select-none py-2 pl-10 pr-4 font-display ${
                     active ? 'bg-indigo-100 text-indigo-900' : 'text-gray-900'
                   }`
                 }
@@ -91,38 +90,38 @@ export const Success = ({
           </Listbox.Options>
         </Transition>
       </Listbox>
-      <nav className="mt-4 text-indigo-900">
+      <nav className="mt-4 text-indigo-900 font-body">
         <ul>
           <NavLink
             to={routes.teacherGroup({ groupId: currentGroup.id })}
-            className="w-full inline-block text-normal font-display mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
+            className="w-full inline-block text-normal mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
             activeClassName="bg-indigo-100"
           >
             Students
           </NavLink>
           <NavLink
             to={routes.teacherGroupFeedback({ groupId: currentGroup.id })}
-            className="w-full inline-block text-normal font-display mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
+            className="w-full inline-block text-normal mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
             activeClassName="bg-indigo-100"
           >
             Feedback
           </NavLink>
           <NavLink
             to={routes.teacherGroupRedeemed({ groupId: currentGroup.id })}
-            className="w-full inline-block text-normal font-display mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
+            className="w-full inline-block text-normal mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
             activeClassName="bg-indigo-100"
           >
             Redeemed
           </NavLink>
           <NavLink
             to={routes.teacherGroupOptions({ groupId: currentGroup.id })}
-            className="w-full inline-block text-normal font-display mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
+            className="w-full inline-block text-normal mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
             activeClassName="bg-indigo-100"
           >
             Options
           </NavLink>
         </ul>
       </nav>
-    </>
+    </div>
   )
 }
