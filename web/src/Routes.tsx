@@ -10,13 +10,14 @@
 import { Router, Route, Set, Private } from '@redwoodjs/router'
 
 import HomeLayout from 'src/layouts/HomeLayout'
+import DashboardLayout from 'src/layouts/DashboardLayout'
 
 const Routes = () => {
   return (
     <Router>
-      <Route path="/student-home" page={StudentHomePage} name="studentHome" />
-      <Private unauthenticated="home">
+      <Private unauthenticated="home" wrap={[DashboardLayout]}>
         <Route path="/teacher" page={TeacherHomePage} name="teacherHome" />
+        <Route path="/student" page={StudentHomePage} name="studentHome" />
       </Private>
 
       <Set wrap={[HomeLayout]}>

@@ -6,7 +6,7 @@ type HomeLayoutProps = {
 
 const HomeLayout = ({ children }: HomeLayoutProps) => {
   return (
-    <div className="max-w-[1200px] min-h-screen m-auto px-2 lg:px-8">
+    <div className="max-w-[1200px] min-h-screen m-auto lg:px-8">
       <SiteHeader />
       {children}
     </div>

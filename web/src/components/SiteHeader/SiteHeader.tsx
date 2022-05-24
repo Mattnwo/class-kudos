@@ -27,7 +27,7 @@ const SiteHeader = () => {
   }
 
   return (
-    <header className="h-24 w-full py-4 flex justify-between px-4 lg:px-0">
+    <header className="h-24 w-full py-4 flex justify-between pl-4 pr-8">
       <button
         className="h-16 my-auto flex"
         onClick={() => {
