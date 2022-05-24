@@ -14,14 +14,18 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 import { useEffect } from 'react'
 
 const LoginPage = () => {
-  const { isAuthenticated, logIn } = useAuth()
+  const { isAuthenticated, hasRole, logIn } = useAuth()
 
   useEffect(() => {
     if (isAuthenticated) {
-      console.log('Is authenticated')
-      // navigate(routes.home())
+      if (hasRole('teacher')) {
+        navigate(routes.teacherHome())
+      }
+      if (hasRole('student')) {
+        navigate(routes.studentHome())
+      }
     }
-  }, [isAuthenticated])
+  }, [isAuthenticated, hasRole])
 
   const usernameRef = useRef<HTMLInputElement>()
   useEffect(() => {

@@ -17,15 +17,17 @@ import StudentSVG from 'src/components/svg/StudentSVG/StudentSVG'
 import TeacherSVG from 'src/components/svg/TeacherSVG/TeacherSVG'
 
 const SignupPage = () => {
-  const { isAuthenticated, signUp } = useAuth()
+  const { hasRole, signUp, currentUser } = useAuth()
   const [accountRole, setAccountRole] = useState('student')
 
   useEffect(() => {
-    if (isAuthenticated) {
-      // navigate(routes.home())
-      console.log('logged in a rerouted in singup page')
+    if (hasRole('teacher')) {
+      navigate(routes.teacherHome())
     }
-  }, [isAuthenticated])
+    if (hasRole('student')) {
+      navigate(routes.studentHome())
+    }
+  }, [hasRole])
 
   // focus on email box on page load
   const firstNameRef = useRef<HTMLInputElement>()
@@ -44,6 +46,13 @@ const SignupPage = () => {
     } else {
       // user is signed in automatically
       toast.success('Welcome!')
+      console.log(currentUser)
+      if (hasRole('teacher')) {
+        navigate(routes.teacherHome())
+      }
+      if (hasRole('student')) {
+        navigate(routes.studentHome())
+      }
     }
   }
 
@@ -53,7 +62,6 @@ const SignupPage = () => {
     } else {
       setAccountRole('student')
     }
-    console.log(accountRole)
   }
 
   const isSelected = 'w-1/2 bg-indigo-500 rounded-xl text-white'
@@ -73,7 +81,7 @@ const SignupPage = () => {
             <div className="rw-segment-main">
               <div className="w-full">
                 <Tab.Group
-                  defaultIndex={1}
+                  defaultIndex={0}
                   onChange={(index) => {
                     handleRoleChange(index)
                   }}
@@ -155,7 +163,7 @@ const SignupPage = () => {
                     className="rw-label"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Username
+                    Email Address
                   </Label>
                   <TextField
                     name="username"
