@@ -53,3 +53,11 @@ export const Group: GroupResolvers = {
   groupPoints: (_obj, { root }) =>
     db.group.findUnique({ where: { id: root.id } }).groupPoints(),
 }
+
+export const groupsOwned: QueryResolvers['groupsOwned'] = ({ userId }) => {
+  console.log('userID', userId)
+  return db.group.findMany({
+    where: { ownerId: userId, archived: false },
+    orderBy: { name: 'desc' },
+  })
+}

@@ -5,7 +5,7 @@ const DashboardHomeButton = () => {
   const { hasRole } = useAuth()
 
   return (
-    <div className="flex h-12 mb-2 rounded-md justify-center align-items cursor-pointer text-indigo-700 hover:bg-indigo-700  hover:text-white">
+    <div className="flex h-12 mb-2 rounded-md justify-center align-items cursor-pointer text-indigo-900 hover:bg-indigo-700  hover:text-white">
       <button
         className="w-full flex py-2 px-4"
         onClick={() => {

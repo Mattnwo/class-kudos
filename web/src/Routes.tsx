@@ -24,8 +24,12 @@ import DashboardLayout from 'src/layouts/DashboardLayout'
 const Routes = () => {
   return (
     <Router>
-      <Private unauthenticated="home" wrap={[DashboardLayout]}>
+      <Private unauthenticated="home" wrap={[DashboardLayout]} roles={['teacher']}>
         <Route path="/teacher" page={TeacherHomePage} name="teacherHome" />
+        <Route path="/teacher/group/{groupId}" page={TeacherGroupPage} name="teacherGroup" />
+      </Private>
+
+      <Private unauthenticated="home" wrap={[DashboardLayout]} roles={['student']}>
         <Route path="/student" page={StudentHomePage} name="studentHome" />
       </Private>
 
