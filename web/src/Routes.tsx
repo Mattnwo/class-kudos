@@ -24,12 +24,12 @@ import DashboardLayout from 'src/layouts/DashboardLayout'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/teacher-group-options" page={TeacherGroupOptionsPage} name="teacherGroupOptions" />
-      <Route path="/teacher-group-redeemed" page={TeacherGroupRedeemedPage} name="teacherGroupRedeemed" />
-      <Route path="/teacher-group-feedback" page={TeacherGroupFeedbackPage} name="teacherGroupFeedback" />
       <Private unauthenticated="home" wrap={[DashboardLayout]} roles={['teacher']}>
         <Route path="/teacher" page={TeacherHomePage} name="teacherHome" />
         <Route path="/teacher/group/{groupId}" page={TeacherGroupPage} name="teacherGroup" />
+        <Route path="/teacher/group/{groupId}/options" page={TeacherGroupOptionsPage} name="teacherGroupOptions" />
+        <Route path="/teacher/group/{groupId}/redeemed" page={TeacherGroupRedeemedPage} name="teacherGroupRedeemed" />
+        <Route path="/teacher/group/{groupId}/feedback" page={TeacherGroupFeedbackPage} name="teacherGroupFeedback" />
       </Private>
 
       <Private unauthenticated="home" wrap={[DashboardLayout]} roles={['student']}>

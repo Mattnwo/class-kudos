@@ -94,28 +94,28 @@ export const Success = ({
       <nav className="mt-4 text-indigo-900">
         <ul>
           <NavLink
-            to={routes.home()}
+            to={routes.teacherGroup({ groupId: currentGroup.id })}
             className="w-full inline-block text-normal font-display mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
             activeClassName="bg-indigo-100"
           >
             Students
           </NavLink>
           <NavLink
-            to={routes.home()}
+            to={routes.teacherGroupFeedback({ groupId: currentGroup.id })}
             className="w-full inline-block text-normal font-display mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
             activeClassName="bg-indigo-100"
           >
             Feedback
           </NavLink>
           <NavLink
-            to={routes.home()}
+            to={routes.teacherGroupRedeemed({ groupId: currentGroup.id })}
             className="w-full inline-block text-normal font-display mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
             activeClassName="bg-indigo-100"
           >
             Redeemed
           </NavLink>
           <NavLink
-            to={routes.home()}
+            to={routes.teacherGroupOptions({ groupId: currentGroup.id })}
             className="w-full inline-block text-normal font-display mb-1 px-4 py-2 text-center rounded-md hover:bg-indigo-100"
             activeClassName="bg-indigo-100"
           >
