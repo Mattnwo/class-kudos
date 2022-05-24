@@ -36,7 +36,6 @@ export const Success = ({
   const changeGroup = (group) => {
     setCurrentGroup(group)
     navigate(routes.teacherGroup({ groupId: group.id }))
-    console.log(group.id, routes.teacherGroup({ groupId: currentGroup.id }))
   }
 
   return (
