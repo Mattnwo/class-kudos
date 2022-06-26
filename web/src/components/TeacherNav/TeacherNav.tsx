@@ -4,7 +4,6 @@ import DashboardHomeButton from 'src/components/DashboardHomeButton/DashboardHom
 import TeacherNavCell from 'src/components/TeacherNavCell'
 
 const TeacherNav = () => {
-  // const [currentGroup, setCurrentGroup] = useState(groups[0])
   const { currentUser } = useAuth()
   return (
     <div className="w-full h-full">

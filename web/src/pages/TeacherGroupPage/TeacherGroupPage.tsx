@@ -6,7 +6,7 @@ const TeacherGroupPage = ({ groupId }) => {
     <>
       <MetaTags title="TeacherGroup" description="TeacherGroup page" />
 
-      <h1>TeacherGroupPage {groupId}</h1>
+      <h1>{groupId}</h1>
 
       <p>
         Find me in{' '}

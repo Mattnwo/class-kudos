@@ -1,12 +1,16 @@
-import { NavLink, navigate, routes } from '@redwoodjs/router'
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState, useContext } from 'react'
+
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import type {
   FindTeacherNavQuery,
   FindTeacherNavQueryVariables,
 } from 'types/graphql'
+
+import { NavLink, navigate, routes } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+
+import { useTeacherGroups } from 'src/context/TeacherGroupsContext'
 
 export const QUERY = gql`
   query groupsOwned($userId: String!) {
@@ -32,6 +36,11 @@ export const Success = ({
   groupsOwned,
 }: CellSuccessProps<FindTeacherNavQuery, FindTeacherNavQueryVariables>) => {
   const [currentGroup, setCurrentGroup] = useState(groupsOwned[0])
+  const { setTeacherGroups } = useTeacherGroups()
+
+  useEffect(() => {
+    setTeacherGroups(groupsOwned)
+  }, [groupsOwned, setTeacherGroups])
 
   const changeGroup = (group) => {
     setCurrentGroup(group)
