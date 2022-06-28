@@ -1,22 +1,31 @@
-import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
-const TeacherGroupPage = ({ groupId }) => {
+import TeacherGroupPageStudentList from 'src/components/TeacherGroupPageStudentList/TeacherGroupPageStudentList'
+
+const TeacherGroupPage = () => {
+  const students = [
+    {
+      name: 'Alissa',
+      groupPoints: 9,
+      points: 34,
+    },
+    {
+      name: 'Brynlee',
+      groupPoints: 6,
+      points: 24,
+    },
+    {
+      name: 'Ryan',
+      groupPoints: 4,
+      points: 14,
+    },
+  ]
+
   return (
-    <>
+    <div>
       <MetaTags title="TeacherGroup" description="TeacherGroup page" />
-
-      <h1>{groupId}</h1>
-
-      <p>
-        Find me in{' '}
-        <code>./web/src/pages/TeacherGroupPage/TeacherGroupPage.tsx</code>
-      </p>
-      <p>
-        My default route is named <code>teacherGroup</code>, link to me with `
-        <Link to={routes.teacherHome()}>TeacherGroup</Link>`
-      </p>
-    </>
+      <TeacherGroupPageStudentList students={students} />
+    </div>
   )
 }
 

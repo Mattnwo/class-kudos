@@ -2,7 +2,7 @@ import { useParams } from '@redwoodjs/router'
 
 import { useTeacherGroups } from 'src/context/TeacherGroupsContext'
 
-type DashboardPageLayoutProps = {
+interface DashboardPageLayoutProps {
   children?: React.ReactNode
 }
 

@@ -1,9 +1,22 @@
 import { useState, useContext, createContext } from 'react'
 
-const TeacherGroupsContext = createContext({})
+type TeacherGroupsContextProperties = {
+  teacherGroups: {
+    id: string
+    name: string
+  }[]
+  setTeacherGroups: (groups: []) => void
+}
+
+const TeacherGroupsContext =
+  createContext<TeacherGroupsContextProperties | null>(null)
 TeacherGroupsContext.displayName = 'TeacherGroupsContext'
 
-const TeacherGroupsContextProvider = ({ children }) => {
+const TeacherGroupsContextProvider = ({
+  children,
+}: {
+  children?: React.ReactNode
+}) => {
   const [teacherGroups, setTeacherGroups] = useState(null)
 
   return (
