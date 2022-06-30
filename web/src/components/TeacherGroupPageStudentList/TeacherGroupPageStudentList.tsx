@@ -10,12 +10,12 @@ const TeacherGroupPageStudentList = (
   students: TeacherGroupPageStudentListProps
 ) => {
   return (
-    <table className="min-w-[600px] table-auto">
+    <table className="h-[600px] min-w-[400px] table-fixed overflow-hidden bg-red-100">
       <tbody>
         <tr className="text-indigo-500 border-b-[1px] border-b-indigo-500 text-xs font-body">
           <th className="text-left px-4 py-4">Name</th>
-          <th className="text-right px-4 py-4">Group Points</th>
-          <th className="text-right px-4 py-4">Total Points</th>
+          <th className="text-right px-4 py-4 w-12">Group Points</th>
+          <th className="text-right px-4 py-4 w-12">Total Points</th>
         </tr>
         {Array.isArray(students.students) &&
           students.students.map((student) => (
