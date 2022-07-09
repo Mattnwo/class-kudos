@@ -1,9 +1,10 @@
-import { db } from 'src/lib/db'
 import type {
   QueryResolvers,
   MutationResolvers,
   GroupResolvers,
 } from 'types/graphql'
+
+import { db } from 'src/lib/db'
 
 export const groups: QueryResolvers['groups'] = () => {
   return db.group.findMany()
@@ -55,9 +56,17 @@ export const Group: GroupResolvers = {
 }
 
 export const groupsOwned: QueryResolvers['groupsOwned'] = ({ userId }) => {
-  console.log('userID', userId)
   return db.group.findMany({
     where: { ownerId: userId, archived: false },
+    orderBy: { name: 'desc' },
+  })
+}
+
+export const groupCardsTeacher: QueryResolvers['groupCardsTeacher'] = ({
+  userId,
+}) => {
+  return db.group.findMany({
+    where: { ownerId: userId, archived: false, type: 'class' },
     orderBy: { name: 'desc' },
   })
 }
