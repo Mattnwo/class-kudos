@@ -99,7 +99,7 @@ export const Success = ({
           </Listbox.Options>
         </Transition>
       </Listbox>
-      <nav className="mt-4 text-indigo-900 font-body">
+      <nav className="mt-4 font-body">
         <ul>
           <NavLink
             to={routes.teacherGroup({ groupId: currentGroup.id })}

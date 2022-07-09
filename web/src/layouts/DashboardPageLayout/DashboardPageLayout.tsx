@@ -15,11 +15,11 @@ const DashboardPageLayout = ({ children }: DashboardPageLayoutProps) => {
   return (
     <div className="h-full w-full p-4 overflow-hidden">
       {groupMatch && (
-        <h1 className="h-[60px] font-display text-indigo-700 text-3xl pt-2 pb-6">
+        <h1 className="h-[60px] font-display text-indigo-600 text-3xl pt-2 pb-6">
           {groupMatch.name}
         </h1>
       )}
-      <div className="h-[calc(100%_-_60px)] overflow-hidden">{children}</div>
+      <div className="h-full overflow-hidden">{children}</div>
     </div>
   )
 }
