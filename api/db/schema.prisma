@@ -89,7 +89,7 @@ model Reward {
 
 model Group {
   id          String       @id @default(uuid())
-  type        String
+  type        String       @default("class")
   name        String
   description String?      @default("")
   enrollId    String?      @unique
