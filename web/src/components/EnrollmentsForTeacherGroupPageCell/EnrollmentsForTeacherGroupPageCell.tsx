@@ -22,11 +22,6 @@ export const QUERY = gql`
   }
 `
 
-export const afterQuery = (data) => {
-  console.log('data', data)
-  return { ...data }
-}
-
 export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => <div>Empty</div>
@@ -39,16 +34,13 @@ export const Failure = ({
 
 export const Success = ({
   enrollments,
-  groupPoints,
 }: CellSuccessProps<
   FindEnrollmentsForTeacherGroupPageQuery,
   FindEnrollmentsForTeacherGroupPageQueryVariables
 >) => {
   return (
     <>
-      <div>{JSON.stringify(enrollments)}</div>
-      <div>{JSON.stringify(groupPoints)}</div>
-      {/* <TeacherGroupPageStudentList students={} /> */}
+      <TeacherGroupPageStudentList enrollments={enrollments} />
     </>
   )
 }
