@@ -10,6 +10,8 @@ export const schema = gql`
   type Query {
     enrollments: [Enrollment!]! @requireAuth
     enrollment(id: String!): Enrollment @requireAuth
+    enrollmentsForTeacherGroupPage(groupId: String!): [Enrollment!]!
+      @requireAuth
   }
 
   input CreateEnrollmentInput {

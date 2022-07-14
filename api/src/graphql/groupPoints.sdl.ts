@@ -11,6 +11,7 @@ export const schema = gql`
   type Query {
     groupPoints: [GroupPoint!]! @requireAuth
     groupPoint(id: String!): GroupPoint @requireAuth
+    groupPointsOfGroup(id: String!): [GroupPoint!]! @requireAuth
   }
 
   input CreateGroupPointInput {

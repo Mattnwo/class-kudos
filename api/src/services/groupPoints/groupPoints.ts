@@ -1,9 +1,10 @@
-import { db } from 'src/lib/db'
 import type {
   QueryResolvers,
   MutationResolvers,
   GroupPointResolvers,
 } from 'types/graphql'
+
+import { db } from 'src/lib/db'
 
 export const groupPoints: QueryResolvers['groupPoints'] = () => {
   return db.groupPoint.findMany()
@@ -46,4 +47,12 @@ export const GroupPoint: GroupPointResolvers = {
     db.groupPoint.findUnique({ where: { id: root.id } }).user(),
   group: (_obj, { root }) =>
     db.groupPoint.findUnique({ where: { id: root.id } }).group(),
+}
+
+export const groupPointsOfGroup: QueryResolvers['groupPointsOfGroup'] = ({
+  id,
+}) => {
+  return db.groupPoint.findMany({
+    where: { groupId: id },
+  })
 }

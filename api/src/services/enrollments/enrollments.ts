@@ -1,9 +1,10 @@
-import { db } from 'src/lib/db'
 import type {
   QueryResolvers,
   MutationResolvers,
   EnrollmentResolvers,
 } from 'types/graphql'
+
+import { db } from 'src/lib/db'
 
 export const enrollments: QueryResolvers['enrollments'] = () => {
   return db.enrollment.findMany()
@@ -47,3 +48,12 @@ export const Enrollment: EnrollmentResolvers = {
   group: (_obj, { root }) =>
     db.enrollment.findUnique({ where: { id: root.id } }).group(),
 }
+
+export const enrollmentsForTeacherGroupPage: QueryResolvers['enrollmentsForTeacherGroupPage'] =
+  ({ groupId }) => {
+    return db.enrollment.findMany({
+      where: {
+        groupId: groupId,
+      },
+    })
+  }
