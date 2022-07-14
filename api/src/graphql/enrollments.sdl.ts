@@ -5,7 +5,7 @@ export const schema = gql`
     userId: String!
     group: Group!
     groupId: String!
-    groupPoints: String!
+    groupPoints: Int!
   }
 
   type Query {
