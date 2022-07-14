@@ -1,9 +1,10 @@
-import { db } from 'src/lib/db'
 import type {
   QueryResolvers,
   MutationResolvers,
   UserResolvers,
 } from 'types/graphql'
+
+import { db } from 'src/lib/db'
 
 export const users: QueryResolvers['users'] = () => {
   return db.user.findMany()
@@ -43,8 +44,6 @@ export const User: UserResolvers = {
     db.user.findUnique({ where: { id: root.id } }).redeemed(),
   groups: (_obj, { root }) =>
     db.user.findUnique({ where: { id: root.id } }).groups(),
-  groupPoints: (_obj, { root }) =>
-    db.user.findUnique({ where: { id: root.id } }).groupPoints(),
   enrollments: (_obj, { root }) =>
     db.user.findUnique({ where: { id: root.id } }).enrollments(),
 }

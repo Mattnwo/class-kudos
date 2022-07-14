@@ -16,7 +16,6 @@ export const schema = gql`
     feedback: [Feedback]!
     redeemed: [Redeemed]!
     groups: [Group]!
-    groupPoints: [GroupPoint]!
     enrollments: [Enrollment]!
   }
 

@@ -11,17 +11,13 @@ export const QUERY = gql`
   query FindEnrollmentsForTeacherGroupPageQuery($groupId: String!) {
     enrollments: enrollmentsForTeacherGroupPage(groupId: $groupId) {
       id
+      groupPoints
       user {
         id
         firstName
         lastName
         points
       }
-    }
-    groupPoints: groupPointsOfGroup(id: $groupId) {
-      id
-      userId
-      points
     }
   }
 `

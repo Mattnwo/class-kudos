@@ -13,7 +13,6 @@ import BehaviorsLayout from 'src/layouts/BehaviorsLayout'
 import DashboardLayout from 'src/layouts/DashboardLayout'
 import EnrollmentsLayout from 'src/layouts/EnrollmentsLayout'
 import FeedbacksLayout from 'src/layouts/FeedbacksLayout'
-import GroupPointsLayout from 'src/layouts/GroupPointsLayout'
 import GroupsLayout from 'src/layouts/GroupsLayout'
 import HomeLayout from 'src/layouts/HomeLayout'
 import RedeemedsLayout from 'src/layouts/RedeemedsLayout'
@@ -42,12 +41,6 @@ const Routes = () => {
           <Route path="/enrollments/{id}/edit" page={EnrollmentEditEnrollmentPage} name="editEnrollment" />
           <Route path="/enrollments/{id}" page={EnrollmentEnrollmentPage} name="enrollment" />
           <Route path="/enrollments" page={EnrollmentEnrollmentsPage} name="enrollments" />
-        </Set>
-        <Set wrap={GroupPointsLayout}>
-          <Route path="/group-points/new" page={GroupPointNewGroupPointPage} name="newGroupPoint" />
-          <Route path="/group-points/{id}/edit" page={GroupPointEditGroupPointPage} name="editGroupPoint" />
-          <Route path="/group-points/{id}" page={GroupPointGroupPointPage} name="groupPoint" />
-          <Route path="/group-points" page={GroupPointGroupPointsPage} name="groupPoints" />
         </Set>
         <Set wrap={GroupsLayout}>
           <Route path="/groups/new" page={GroupNewGroupPage} name="newGroup" />

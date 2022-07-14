@@ -3,8 +3,9 @@ export const schema = gql`
     id: String!
     user: User!
     userId: String!
-    group: Group
-    groupId: String
+    group: Group!
+    groupId: String!
+    groupPoints: String!
   }
 
   type Query {

@@ -8,30 +8,8 @@ import {
   Submit,
 } from '@redwoodjs/forms'
 
-
-
 const GroupForm = (props) => {
   const onSubmit = (data) => {
-
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
     props.onSave(data, props?.group?.id)
   }
 
@@ -44,7 +22,7 @@ const GroupForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-      
+
         <Label
           name="type"
           className="rw-label"
@@ -52,15 +30,14 @@ const GroupForm = (props) => {
         >
           Type
         </Label>
-        
-          <TextField
-            name="type"
-            defaultValue={props.group?.type}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <TextField
+          name="type"
+          defaultValue={props.group?.type}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="type" className="rw-field-error" />
 
@@ -71,15 +48,14 @@ const GroupForm = (props) => {
         >
           Name
         </Label>
-        
-          <TextField
-            name="name"
-            defaultValue={props.group?.name}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <TextField
+          name="name"
+          defaultValue={props.group?.name}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="name" className="rw-field-error" />
 
@@ -90,14 +66,13 @@ const GroupForm = (props) => {
         >
           Description
         </Label>
-        
-          <TextField
-            name="description"
-            defaultValue={props.group?.description}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-          />
-        
+
+        <TextField
+          name="description"
+          defaultValue={props.group?.description}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
 
         <FieldError name="description" className="rw-field-error" />
 
@@ -108,14 +83,13 @@ const GroupForm = (props) => {
         >
           Enroll id
         </Label>
-        
-          <TextField
-            name="enrollId"
-            defaultValue={props.group?.enrollId}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-          />
-        
+
+        <TextField
+          name="enrollId"
+          defaultValue={props.group?.enrollId}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
 
         <FieldError name="enrollId" className="rw-field-error" />
 
@@ -126,15 +100,14 @@ const GroupForm = (props) => {
         >
           Owner id
         </Label>
-        
-          <TextField
-            name="ownerId"
-            defaultValue={props.group?.ownerId}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <TextField
+          name="ownerId"
+          defaultValue={props.group?.ownerId}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="ownerId" className="rw-field-error" />
 
@@ -145,22 +118,18 @@ const GroupForm = (props) => {
         >
           Archived
         </Label>
-        
-          <CheckboxField
-            name="archived"
-            defaultChecked={props.group?.archived}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-          />
-        
+
+        <CheckboxField
+          name="archived"
+          defaultChecked={props.group?.archived}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
 
         <FieldError name="archived" className="rw-field-error" />
 
         <div className="rw-button-group">
-          <Submit
-            disabled={props.loading}
-            className="rw-button rw-button-blue"
-          >
+          <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save
           </Submit>
         </div>

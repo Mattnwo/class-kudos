@@ -51,8 +51,6 @@ export const Group: GroupResolvers = {
     db.group.findUnique({ where: { id: root.id } }).feedback(),
   redeemed: (_obj, { root }) =>
     db.group.findUnique({ where: { id: root.id } }).redeemed(),
-  groupPoints: (_obj, { root }) =>
-    db.group.findUnique({ where: { id: root.id } }).groupPoints(),
 }
 
 export const groupsOwned: QueryResolvers['groupsOwned'] = ({ userId }) => {
