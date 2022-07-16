@@ -51,6 +51,32 @@ export const Success = ({
   const [currentStudent, setCurrentStudent] = useState<CurrentStudent | null>(
     null
   )
+  const [selectingMultiple, setSelectingMultiple] = useState<boolean>(false)
+  const [currentStudents, setCurrentStudents] = useState<CurrentStudent[] | []>(
+    []
+  )
+
+  const toggleSelectingMultiple = () => {
+    setCurrentStudent(null)
+    setCurrentStudents([])
+    setSelectingMultiple(!selectingMultiple)
+  }
+
+  const handleMultiSelect = (student: CurrentStudent) => {
+    const currentlySelected = [...currentStudents]
+    const existingStudentIndex = currentlySelected.findIndex(
+      (selected) => selected.id == student.id
+    )
+    // is student not aleady selected into array, add them
+    if (existingStudentIndex === -1) {
+      currentlySelected.push(student)
+      setCurrentStudents(currentlySelected)
+    } else {
+      //if the student IS already selected, remove them from selection
+      currentlySelected.splice(existingStudentIndex, 1)
+      setCurrentStudents(currentlySelected)
+    }
+  }
 
   return (
     <div className="w-full h-full grid grid-cols-12 gap-4">
@@ -59,19 +85,33 @@ export const Success = ({
           enrollments={enrollmentsForGroup}
           currentStudent={currentStudent}
           setCurrentStudent={setCurrentStudent}
+          selectingMultiple={selectingMultiple}
+          currentStudents={currentStudents}
+          toggleSelectingMultiple={toggleSelectingMultiple}
+          handleMultiSelect={handleMultiSelect}
         />
       </div>
       <div className={'flex flex-col col-span-8 overflow-y-auto'}>
-        <div className="w-full h-[200px] p-4 rounded-lg flex flex-col border-indigo-600 border-[1px]">
-          {currentStudent && (
-            <div className="font-display text-2xl text-indigo-600">
-              {currentStudent.firstName}{' '}
-              {currentStudent.lastName && currentStudent.lastName}
+        {currentStudent && (
+          <div className="w-full h-full p-4 rounded-lg flex flex-col border-indigo-600 border-[1px]">
+            <div className="flex border-indigo-600 border-b-[1px] pb-2">
+              <div className="font-display text-2xl text-indigo-600">
+                {currentStudent.firstName}{' '}
+                {currentStudent.lastName && currentStudent.lastName}
+              </div>
+              <div className="flex-grow text-right">
+                <span className="font-body text-2xl text-indigo-600">
+                  {currentStudent && currentStudent.groupPoints}
+                </span>
+                <span className="font-body text-indigo-400">
+                  {currentStudent.groupPoints == 1
+                    ? ' group kudo'
+                    : ' group kudos'}
+                </span>
+              </div>
             </div>
-          )}
-          {currentStudent && currentStudent.points}
-          {currentStudent && currentStudent.groupPoints}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   )
