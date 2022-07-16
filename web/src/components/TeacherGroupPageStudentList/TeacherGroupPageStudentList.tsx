@@ -24,6 +24,7 @@ export interface TeacherGroupPageStudentListProps {
   currentStudents: CurrentStudent[]
   toggleSelectingMultiple: () => void
   handleMultiSelect: ({ id, firstName, lastName, points, groupPoints }) => void
+  selectAll: () => void
 }
 
 const TeacherGroupPageStudentList = (
@@ -31,15 +32,27 @@ const TeacherGroupPageStudentList = (
 ) => {
   return (
     <>
-      <Button
-        onClick={() => {
-          groupData.toggleSelectingMultiple()
-        }}
-        red={groupData.selectingMultiple}
-      >
-        {groupData.selectingMultiple ? 'Select None' : 'Select Multiple'}
-      </Button>
-      <table className="w-full table-fixed overflow-y-scroll">
+      <div className="w-full flex flex-row-reverse gap-x-2">
+        <Button
+          onClick={() => {
+            groupData.toggleSelectingMultiple()
+          }}
+          red={groupData.selectingMultiple}
+        >
+          {groupData.selectingMultiple ? 'Select None' : 'Select Multiple'}
+        </Button>
+        {groupData.selectingMultiple && (
+          <Button
+            onClick={() => {
+              groupData.selectAll()
+            }}
+            green
+          >
+            Select All
+          </Button>
+        )}
+      </div>
+      <table className="w-full table-fixed overflow-y-scroll mt-2">
         <tbody>
           <tr className="text-indigo-500 border-b-[1px] border-b-indigo-500 text-xs font-body">
             <th className="text-left px-4 pb-4">Name</th>

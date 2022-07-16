@@ -78,6 +78,18 @@ export const Success = ({
     }
   }
 
+  const selectAll = () => {
+    setCurrentStudent(null)
+    const allStudents = enrollmentsForGroup.map((enrollment) => ({
+      id: enrollment.user.id,
+      firstName: enrollment.user.firstName,
+      lastName: enrollment.user.lastName,
+      points: enrollment.user.points,
+      groupPoints: enrollment.groupPoints,
+    }))
+    setCurrentStudents(allStudents)
+  }
+
   return (
     <div className="w-full h-full grid grid-cols-12 gap-4">
       <div className={'col-span-4 overflow-y-auto p-1'}>
@@ -89,6 +101,7 @@ export const Success = ({
           currentStudents={currentStudents}
           toggleSelectingMultiple={toggleSelectingMultiple}
           handleMultiSelect={handleMultiSelect}
+          selectAll={selectAll}
         />
       </div>
       <div className={'flex flex-col col-span-8 overflow-y-auto'}>
