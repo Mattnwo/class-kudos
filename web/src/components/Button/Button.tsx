@@ -20,7 +20,7 @@ const Button = (props) => {
   if (props.white)
     return (
       <button
-        className="h-10 py-2 px-4 border-[1px] border-indigo-600 hover:bg-indigo-600 rounded-md text-white"
+        className="h-10 py-2 px-4 border-[1px] border-indigo-600 hover:bg-indigo-600 rounded-md text-indigo-600"
         onClick={props.onClick}
       >
         {props.children}
