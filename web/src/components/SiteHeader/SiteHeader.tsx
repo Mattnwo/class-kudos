@@ -1,8 +1,8 @@
-import { navigate, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
+import { navigate, routes } from '@redwoodjs/router'
 
-import CoinSVG from 'src/components/svg/CoinSVG/CoinSVG'
 import Button from 'src/components/Button'
+import CoinSVG from 'src/components/svg/CoinSVG/CoinSVG'
 
 const SiteHeader = () => {
   const { isAuthenticated, logOut, hasRole } = useAuth()
@@ -44,6 +44,7 @@ const SiteHeader = () => {
           onClick={() => {
             logInOutButtonHangle()
           }}
+          white
         >
           {isAuthenticated ? 'Logout' : 'Login'}
         </Button>
