@@ -49,11 +49,12 @@ export const Enrollment: EnrollmentResolvers = {
     db.enrollment.findUnique({ where: { id: root.id } }).group(),
 }
 
-export const enrollmentsForTeacherGroupPage: QueryResolvers['enrollmentsForTeacherGroupPage'] =
-  ({ groupId }) => {
-    return db.enrollment.findMany({
-      where: {
-        groupId: groupId,
-      },
-    })
-  }
+export const enrollmentsForGroup: QueryResolvers['enrollmentsForGroup'] = ({
+  groupId,
+}) => {
+  return db.enrollment.findMany({
+    where: {
+      groupId: groupId,
+    },
+  })
+}
