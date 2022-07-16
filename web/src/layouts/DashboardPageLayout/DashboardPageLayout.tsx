@@ -19,7 +19,7 @@ const DashboardPageLayout = ({ children }: DashboardPageLayoutProps) => {
           {groupMatch.name}
         </h1>
       )}
-      <div className="h-full overflow-hidden">{children}</div>
+      <div className="h-[calc(100%_-_60px)] overflow-hidden">{children}</div>
     </div>
   )
 }

@@ -1,14 +1,14 @@
 import { MetaTags } from '@redwoodjs/web'
 
-import EnrollmentsForTeacherGroupPageCell from 'src/components/EnrollmentsForTeacherGroupPageCell/EnrollmentsForTeacherGroupPageCell'
+import TeacherGroupPageCell from 'src/components/TeacherGroupPageCell/TeacherGroupPageCell'
 
 const TeacherGroupPage = ({ groupId }) => {
   return (
-    <div>
+    <>
       <MetaTags title="TeacherGroup" description="TeacherGroup page" />
-      <EnrollmentsForTeacherGroupPageCell groupId={groupId} />
-      {/* <TeacherGroupPageStudentList students={students} /> */}
-    </div>
+      {/* Work on meta tags after moving group data to context */}
+      <TeacherGroupPageCell groupId={groupId} />
+    </>
   )
 }
 
