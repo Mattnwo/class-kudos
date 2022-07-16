@@ -125,6 +125,25 @@ export const Success = ({
             </div>
           </div>
         )}
+        {selectingMultiple && (
+          <div className="w-full h-full p-4 rounded-lg flex flex-col border-indigo-600 border-[1px]">
+            <div className="flex border-indigo-600 border-b-[1px] pb-2 mb-2">
+              <div className="font-display text-2xl text-indigo-600">
+                Selected Students
+              </div>
+            </div>
+            <div className="flex gap-2">
+              {currentStudents.map((student) => (
+                <span
+                  key={student.id}
+                  className="p-2 bg-indigo-500 text-white rounded-md"
+                >
+                  {student.firstName}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
