@@ -16,6 +16,8 @@ text-purple {
   color: #4338ca;
 }
 
+/**
 tr:hover + tr {
   border-top-color: transparent;
 }
+**/
