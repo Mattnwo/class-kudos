@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 import type {
-  FindTeacherGroupPageQuery,
-  FindTeacherGroupPageQueryVariables,
+  FindGroupForTeacherGroupPageQuery,
+  FindGroupForTeacherGroupPageQueryVariables,
 } from 'types/graphql'
 
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
@@ -23,7 +23,6 @@ export const QUERY = gql`
     }
   }
 `
-
 export interface CurrentStudent {
   id: string
   firstName: string
@@ -38,15 +37,15 @@ export const Empty = () => <div>Empty</div>
 
 export const Failure = ({
   error,
-}: CellFailureProps<FindTeacherGroupPageQueryVariables>) => (
+}: CellFailureProps<FindGroupForTeacherGroupPageQueryVariables>) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
 export const Success = ({
   enrollmentsForGroup,
 }: CellSuccessProps<
-  FindTeacherGroupPageQuery,
-  FindTeacherGroupPageQueryVariables
+  FindGroupForTeacherGroupPageQuery,
+  FindGroupForTeacherGroupPageQueryVariables
 >) => {
   const [currentStudent, setCurrentStudent] = useState<CurrentStudent | null>(
     null
