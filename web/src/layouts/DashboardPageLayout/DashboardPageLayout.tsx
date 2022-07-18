@@ -11,7 +11,6 @@ const DashboardPageLayout = ({ children }: DashboardPageLayoutProps) => {
   const { groupId } = useParams()
 
   const groupMatch = teacherGroups?.find((group) => group.id === groupId)
-  console.log('teacherGroups in dashboar layout', teacherGroups)
 
   return (
     <div className="h-full w-full p-4 overflow-hidden">
