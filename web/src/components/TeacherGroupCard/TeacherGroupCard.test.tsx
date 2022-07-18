@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import TeacherGroupPageStudentList from './TeacherGroupPageStudentList'
+import TeacherGroupCard from './TeacherGroupCard'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-components
 
-describe('TeacherGroupPageStudentList', () => {
+describe('TeacherGroupCard', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<TeacherGroupPageStudentList />)
+      render(<TeacherGroupCard />)
     }).not.toThrow()
   })
 })

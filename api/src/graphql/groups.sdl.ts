@@ -19,7 +19,6 @@ export const schema = gql`
     groups: [Group!]! @requireAuth
     group(id: String!): Group @requireAuth
     groupsOwned(userId: String!): [Group!]! @requireAuth
-    groupCardsTeacher(userId: String!): [Group!]! @requireAuth
   }
 
   input CreateGroupInput {

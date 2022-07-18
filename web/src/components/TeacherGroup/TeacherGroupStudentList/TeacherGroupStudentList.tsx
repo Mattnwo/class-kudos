@@ -7,7 +7,7 @@ export interface CurrentStudent {
   groupPoints: number
 }
 
-export interface TeacherGroupPageStudentListProps {
+export interface TeacherGroupStudentListProps {
   enrollments: {
     id: string
     groupPoints: number
@@ -27,7 +27,7 @@ export interface TeacherGroupPageStudentListProps {
   selectAll: () => void
 }
 
-const TeacherGroupPageStudentList = (
+const TeacherGroupStudentList = (
   groupData: TeacherGroupPageStudentListProps
 ) => {
   return (
@@ -126,5 +126,5 @@ const TeacherGroupPageStudentList = (
   )
 }
 
-export default TeacherGroupPageStudentList
-export { TeacherGroupPageStudentListProps }
+export default TeacherGroupStudentList
+export { TeacherGroupStudentListProps }

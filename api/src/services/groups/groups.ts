@@ -59,12 +59,3 @@ export const groupsOwned: QueryResolvers['groupsOwned'] = ({ userId }) => {
     orderBy: { name: 'desc' },
   })
 }
-
-export const groupCardsTeacher: QueryResolvers['groupCardsTeacher'] = ({
-  userId,
-}) => {
-  return db.group.findMany({
-    where: { ownerId: userId, archived: false, type: 'class' },
-    orderBy: { name: 'desc' },
-  })
-}
