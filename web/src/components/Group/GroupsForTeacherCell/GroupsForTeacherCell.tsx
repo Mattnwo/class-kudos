@@ -1,10 +1,10 @@
-import { Fragment, useEffect, useState, useContext } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import type {
-  FindTeacherNavQuery,
-  FindTeacherNavQueryVariables,
+  FindGroupsForTeacherQuery,
+  FindGroupsForTeacherQueryVariables,
 } from 'types/graphql'
 
 import { NavLink, navigate, routes } from '@redwoodjs/router'
@@ -18,6 +18,7 @@ export const QUERY = gql`
       id
       type
       name
+      enrollId
     }
   }
 `
@@ -28,7 +29,7 @@ export const Empty = () => <div>Empty</div>
 
 export const Failure = ({
   error,
-}: CellFailureProps<FindTeacherNavQueryVariables>) => (
+}: CellFailureProps<FindGroupsForTeacherQueryVariables>) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
