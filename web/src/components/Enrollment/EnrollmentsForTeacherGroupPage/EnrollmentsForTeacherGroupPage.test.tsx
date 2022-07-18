@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import GroupForTeacherGroupPage from './GroupForTeacherGroupPage'
+import EnrollmentsForTeacherGroupPage from './EnrollmentsForTeacherGroupPage'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-components
 
-describe('GroupForTeacherGroupPage', () => {
+describe('EnrollmentsForTeacherGroupPage', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<GroupForTeacherGroupPage />)
+      render(<EnrollmentsForTeacherGroupPage />)
     }).not.toThrow()
   })
 })

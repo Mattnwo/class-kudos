@@ -3,8 +3,8 @@ import {
   Empty,
   Failure,
   Success,
-} from './GroupForTeacherGroupPageCell'
-import { standard } from './GroupForTeacherGroupPageCell.mock'
+} from './EnrollmentsForTeacherGroupPageCell'
+import { standard } from './EnrollmentsForTeacherGroupPageCell.mock'
 
 export const loading = () => {
   return Loading ? <Loading /> : null
@@ -22,4 +22,4 @@ export const success = () => {
   return Success ? <Success {...standard()} /> : null
 }
 
-export default { title: 'Cells/GroupForTeacherGroupPageCell' }
+export default { title: 'Cells/EnrollmentsForTeacherGroupPageCell' }

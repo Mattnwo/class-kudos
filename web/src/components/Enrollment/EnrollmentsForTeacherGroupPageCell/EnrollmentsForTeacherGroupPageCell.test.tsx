@@ -4,8 +4,8 @@ import {
   Empty,
   Failure,
   Success,
-} from './GroupForTeacherGroupPageCell'
-import { standard } from './GroupForTeacherGroupPageCell.mock'
+} from './EnrollmentsForTeacherGroupPageCell'
+import { standard } from './EnrollmentsForTeacherGroupPageCell.mock'
 
 // Generated boilerplate tests do not account for all circumstances
 // and can fail without adjustments, e.g. Float and DateTime types.
@@ -13,7 +13,7 @@ import { standard } from './GroupForTeacherGroupPageCell.mock'
 //        https://redwoodjs.com/docs/testing#testing-cells
 // https://redwoodjs.com/docs/testing#jest-expect-type-considerations
 
-describe('GroupForTeacherGroupPageCell', () => {
+describe('EnrollmentsForTeacherGroupPageCell', () => {
   it('renders Loading successfully', () => {
     expect(() => {
       render(<Loading />)
@@ -42,7 +42,9 @@ describe('GroupForTeacherGroupPageCell', () => {
     expect(() => {
       render(
         <Success
-          groupForTeacherGroupPage={standard().groupForTeacherGroupPage}
+          enrollmentsForTeacherGroupPage={
+            standard().enrollmentsForTeacherGroupPage
+          }
         />
       )
     }).not.toThrow()

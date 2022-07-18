@@ -10,7 +10,7 @@ export interface CurrentStudent {
   groupPoints: number
 }
 
-const GroupForTeacherGroupPage = ({ enrollmentsForGroup }) => {
+const EnrollmentsForTeacherGroupPage = ({ enrollmentsForGroup }) => {
   const [currentStudent, setCurrentStudent] = useState<CurrentStudent | null>(
     null
   )
@@ -112,4 +112,4 @@ const GroupForTeacherGroupPage = ({ enrollmentsForGroup }) => {
   )
 }
 
-export default GroupForTeacherGroupPage
+export default EnrollmentsForTeacherGroupPage

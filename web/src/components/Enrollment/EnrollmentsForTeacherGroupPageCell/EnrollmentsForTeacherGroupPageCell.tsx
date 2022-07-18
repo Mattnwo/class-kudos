@@ -1,13 +1,13 @@
 import { useState } from 'react'
 
 import type {
-  FindGroupForTeacherGroupPageQuery,
-  FindGroupForTeacherGroupPageQueryVariables,
+  FindEnrollmentsForTeacherGroupPageQuery,
+  FindEnrollmentsForTeacherGroupPageQueryVariables,
 } from 'types/graphql'
 
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
-import GroupForTeacherGroupPage from 'src/components/Group/GroupForTeacherGroupPage'
+import EnrollmentsForTeacherGroupPage from 'src/components/Enrollment/EnrollmentsForTeacherGroupPage/EnrollmentsForTeacherGroupPage'
 
 export const QUERY = gql`
   query FindTeacherGroupPageQuery($groupId: String!) {
@@ -30,15 +30,17 @@ export const Empty = () => <div>Empty</div>
 
 export const Failure = ({
   error,
-}: CellFailureProps<FindGroupForTeacherGroupPageQueryVariables>) => (
+}: CellFailureProps<FindEnrollmentsForTeacherGroupPageQueryVariables>) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
 export const Success = ({
   enrollmentsForGroup,
 }: CellSuccessProps<
-  FindGroupForTeacherGroupPageQuery,
-  FindGroupForTeacherGroupPageQueryVariables
+  FindEnrollmentsForTeacherGroupPageQuery,
+  FindEnrollmentsForTeacherGroupPageQueryVariables
 >) => {
-  return <GroupForTeacherGroupPage enrollmentsForGroup={enrollmentsForGroup} />
+  return (
+    <EnrollmentsForTeacherGroupPage enrollmentsForGroup={enrollmentsForGroup} />
+  )
 }
