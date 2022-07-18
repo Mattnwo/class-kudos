@@ -11,6 +11,7 @@ export const schema = gql`
   type Query {
     behaviors: [Behavior!]! @requireAuth
     behavior(id: String!): Behavior @requireAuth
+    behaviorsOfGroup(id: String!): [Behavior!]! @requireAuth
   }
 
   input CreateBehaviorInput {

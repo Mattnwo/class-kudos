@@ -1,9 +1,10 @@
-import { db } from 'src/lib/db'
 import type {
   QueryResolvers,
   MutationResolvers,
   BehaviorResolvers,
 } from 'types/graphql'
+
+import { db } from 'src/lib/db'
 
 export const behaviors: QueryResolvers['behaviors'] = () => {
   return db.behavior.findMany()
@@ -44,4 +45,12 @@ export const Behavior: BehaviorResolvers = {
     db.behavior.findUnique({ where: { id: root.id } }).group(),
   feedback: (_obj, { root }) =>
     db.behavior.findUnique({ where: { id: root.id } }).feedback(),
+}
+
+export const behaviorsOfGroup: QueryResolvers['behaviorsOfGroup'] = ({
+  id,
+}) => {
+  return db.behavior.findMany({
+    where: { groupId: id },
+  })
 }
