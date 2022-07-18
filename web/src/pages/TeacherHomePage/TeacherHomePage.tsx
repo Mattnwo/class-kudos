@@ -1,13 +1,12 @@
 import { useAuth } from '@redwoodjs/auth'
 import { MetaTags } from '@redwoodjs/web'
 
-import GroupCardTeacher from 'src/components/GroupCardTeacher/GroupCardTeacher'
+import GroupCardTeacherCell from 'src/components/Group/GroupCardTeacherCell/GroupCardTeacherCell'
 import { useTeacherGroups } from 'src/context/TeacherGroupsContext'
 
 const TeacherHomePage = () => {
   const { currentUser } = useAuth()
   const { teacherGroups } = useTeacherGroups()
-  console.log('teacherGroups in teacher home', teacherGroups)
 
   return (
     <>
@@ -19,9 +18,12 @@ const TeacherHomePage = () => {
           : 'Welcome!'}
       </h1>
       <div className="w-full max-h-full flex flex-wrap pt-4 gap-8 justify-center md:justify-start">
-        {/* <GroupCardsTeacherCell userId={currentUser.id} /> */}
         {teacherGroups?.map((group) => (
-          <GroupCardTeacher key={group.id} group={group} />
+          <GroupCardTeacherCell
+            key={group.id}
+            groupId={group.id}
+            group={group}
+          />
         ))}
       </div>
     </>

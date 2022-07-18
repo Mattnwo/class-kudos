@@ -18,6 +18,7 @@ export const QUERY = gql`
       id
       type
       name
+      description
       enrollId
     }
   }
