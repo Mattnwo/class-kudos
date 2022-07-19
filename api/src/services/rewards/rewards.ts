@@ -1,9 +1,10 @@
-import { db } from 'src/lib/db'
 import type {
   QueryResolvers,
   MutationResolvers,
   RewardResolvers,
 } from 'types/graphql'
+
+import { db } from 'src/lib/db'
 
 export const rewards: QueryResolvers['rewards'] = () => {
   return db.reward.findMany()
@@ -40,4 +41,12 @@ export const deleteReward: MutationResolvers['deleteReward'] = ({ id }) => {
 export const Reward: RewardResolvers = {
   group: (_obj, { root }) =>
     db.reward.findUnique({ where: { id: root.id } }).group(),
+}
+
+export const rewardsOfGroup: QueryResolvers['rewardsOfGroup'] = ({
+  groupId,
+}) => {
+  return db.reward.findMany({
+    where: { groupId: groupId },
+  })
 }

@@ -61,6 +61,7 @@ const BehaviorForm = (props) => {
         />
 
         <FieldError name="value" className="rw-field-error" />
+
         {!props.groupId && (
           <>
             <Label

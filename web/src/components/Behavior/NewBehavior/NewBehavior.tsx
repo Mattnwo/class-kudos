@@ -48,7 +48,12 @@ const NewBehavior = ({ groupId, isOpen, setIsOpen }) => {
             This will add a behavior to track on the group.
           </Dialog.Description>
           <div className="font-body p-4">
-            <BehaviorForm groupId={groupId} onSave={onSave} />
+            <BehaviorForm
+              groupId={groupId}
+              onSave={onSave}
+              loading={loading}
+              error={error}
+            />
           </div>
         </Dialog.Panel>
       </div>

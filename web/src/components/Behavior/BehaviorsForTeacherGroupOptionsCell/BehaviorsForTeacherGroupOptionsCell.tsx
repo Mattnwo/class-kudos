@@ -7,6 +7,7 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import BehaviorsForTeacherGroupOptions from 'src/components/Behavior/BehaviorsForTeacherGroupOptions'
 import NewBehavior from 'src/components/Behavior/NewBehavior'
 import Button from 'src/components/Button/Button'
+import PageSection from 'src/components/PageSection/PageSection'
 
 export const QUERY = gql`
   query BehaviorsForTeacherGroupOptionsQuery($groupId: String!) {
@@ -24,16 +25,13 @@ export const Empty = ({ groupId }) => {
   const [isOpen, setIsOpen] = useState(true)
 
   return (
-    <div className="w-full h-full p-4 rounded-lg flex flex-col border-indigo-600 border-[1px]">
-      <div className="flex border-indigo-600 border-b-[1px] pb-2 mb-2">
-        <div className="font-display text-2xl text-indigo-600">Behaviors</div>
-      </div>
+    <PageSection title="Behaviors">
       <div>No behaviors yet, add some to get started!</div>
       <NewBehavior groupId={groupId} isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="w-full flex flex-row-reverse">
-        <Button onClick={() => setIsOpen(true)}>+ Add Behavior</Button>
+        <Button onClick={() => setIsOpen(true)}>Add Behavior</Button>
       </div>
-    </div>
+    </PageSection>
   )
 }
 
@@ -48,15 +46,12 @@ export const Success = ({
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="w-full h-full p-4 rounded-lg flex flex-col border-indigo-600 border-[1px]">
-      <div className="flex border-indigo-600 border-b-[1px] pb-2 mb-2">
-        <div className="font-display text-2xl text-indigo-600">Behaviors</div>
-      </div>
+    <PageSection title="Behaviors">
       <BehaviorsForTeacherGroupOptions behaviorsOfGroup={behaviorsOfGroup} />
       <NewBehavior groupId={groupId} isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="w-full flex flex-row-reverse">
-        <Button onClick={() => setIsOpen(true)}>+ Add Behavior</Button>
+        <Button onClick={() => setIsOpen(true)}>Add Behavior</Button>
       </div>
-    </div>
+    </PageSection>
   )
 }

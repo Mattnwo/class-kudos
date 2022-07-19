@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import TeacherGroupStudentList from 'src/components/TeacherGroup/TeacherGroupStudentList/TeacherGroupStudentList'
+import TeacherGroupStudentList from 'src/components/Group/TeacherGroup/TeacherGroupStudentList/TeacherGroupStudentList'
 
 export interface CurrentStudent {
   id: string
