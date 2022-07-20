@@ -1,4 +1,14 @@
-const BehaviorsForTeacherGroupOptions = ({ behaviorsOfGroup }) => {
+type BehaviorsOfGroupProps = {
+  behaviorsOfGroup: {
+    id: string
+    name: string
+    value: number
+  }[]
+}
+
+const BehaviorsForTeacherGroupOptions = ({
+  behaviorsOfGroup,
+}: BehaviorsOfGroupProps) => {
   return (
     <table className="w-full table-auto overflow-y-scroll my-2">
       <tbody>

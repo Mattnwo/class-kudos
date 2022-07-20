@@ -22,7 +22,7 @@ export const QUERY = gql`
 export const Loading = () => <div>Loading...</div>
 
 export const Empty = ({ groupId }) => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <PageSection title="Rewards">
       <div>No behaviors yet, add some to get started!</div>
@@ -42,10 +42,10 @@ export const Success = ({
   rewardsOfGroup,
   groupId,
 }: CellSuccessProps<RewardsForTeacherGroupOptionsQuery>) => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <PageSection title="Rewards">
-      <RewardsForTeacherGroupOptions rewards={rewardsOfGroup} />
+      <RewardsForTeacherGroupOptions rewardsOfGroup={rewardsOfGroup} />
       <NewReward groupId={groupId} isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="w-full flex flex-row-reverse">
         <Button onClick={() => setIsOpen(true)}>Add Reward</Button>
