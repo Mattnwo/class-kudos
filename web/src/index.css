@@ -12,6 +12,21 @@
  * END --- SETUP TAILWINDCSS EDIT
  */
 
+ @layer components {
+  .dialog {
+    @apply relative z-50;
+  }
+  .dialog-panel {
+    @apply w-full max-w-sm rounded bg-white shadow-lg
+  }
+  .dialog-title {
+    @apply bg-indigo-600 rounded-t p-4 text-white font-display text-lg
+  }
+  .dialog-description, .dialog-content {
+    @apply font-body p-4
+  }
+}
+
 text-purple {
   color: #4338ca;
 }

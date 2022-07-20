@@ -4,6 +4,7 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import BehaviorForm from 'src/components/Behavior/BehaviorForm'
+import StyledDialog from 'src/components/Styled/StyledDialog/StyledDialog'
 
 const CREATE_BEHAVIOR_MUTATION = gql`
   mutation CreateBehaviorMutation($input: CreateBehaviorInput!) {
@@ -33,31 +34,19 @@ const NewBehavior = ({ groupId, isOpen, setIsOpen }) => {
   }
 
   return (
-    <Dialog
-      open={isOpen}
+    <StyledDialog
+      isOpen={isOpen}
       onClose={() => setIsOpen(false)}
-      className="relative z-50"
+      title="Add Behavior"
+      description="This will add a behavior to track on the group."
     >
-      <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-      <div className="fixed inset-0 flex items-center justify-center p-4">
-        <Dialog.Panel className="w-full max-w-sm rounded bg-white shadow-lg">
-          <Dialog.Title className="bg-indigo-600 rounded-t p-4 text-white font-display text-lg">
-            Add Behavior
-          </Dialog.Title>
-          <Dialog.Description className="font-body p-4">
-            This will add a behavior to track on the group.
-          </Dialog.Description>
-          <div className="font-body p-4">
-            <BehaviorForm
-              groupId={groupId}
-              onSave={onSave}
-              loading={loading}
-              error={error}
-            />
-          </div>
-        </Dialog.Panel>
-      </div>
-    </Dialog>
+      <BehaviorForm
+        groupId={groupId}
+        onSave={onSave}
+        loading={loading}
+        error={error}
+      />
+    </StyledDialog>
   )
 }
 
