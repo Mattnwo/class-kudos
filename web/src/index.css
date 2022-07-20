@@ -22,8 +22,11 @@
   .dialog-title {
     @apply bg-indigo-600 rounded-t p-4 text-white font-display text-lg
   }
-  .dialog-description, .dialog-content {
+  .dialog-description {
     @apply font-body p-4
+  }
+  .dialog-content {
+    @apply pb-4 px-4
   }
 }
 

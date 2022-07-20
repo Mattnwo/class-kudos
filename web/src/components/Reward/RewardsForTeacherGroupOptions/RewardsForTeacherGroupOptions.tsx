@@ -2,7 +2,7 @@ type RewardsOfGroupProps = {
   rewardsOfGroup: {
     id: string
     name: string
-    value: number
+    cost: number
   }[]
 }
 

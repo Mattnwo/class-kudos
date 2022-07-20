@@ -1,3 +1,9 @@
+import { useState } from 'react'
+
+import BehaviorsForTeacherGroupOptionsRow from 'src/components/Behavior/BehaviorsForTeacherGroupOptionsRow'
+import EditBehaviorCell from 'src/components/Behavior/EditBehaviorCell'
+import StyledDialog from 'src/components/Styled/StyledDialog/StyledDialog'
+
 type BehaviorsOfGroupProps = {
   behaviorsOfGroup: {
     id: string
@@ -19,35 +25,10 @@ const BehaviorsForTeacherGroupOptions = ({
         </tr>
         {behaviorsOfGroup.map((behavior) => {
           return (
-            <tr
-              className={`font-body text-indigo-900 hover:bg-indigo-100`}
+            <BehaviorsForTeacherGroupOptionsRow
+              behavior={behavior}
               key={behavior.id}
-            >
-              <td className="text-left rounded-l-lg px-4 py-3">
-                {behavior.name}
-              </td>
-              <td className="text-right px-4 py-3">{behavior.value}</td>
-              <td className="text-right rounded-r-lg px-4 py-3 text-indigo-300">
-                <div className="flex justify-end gap-y-2">
-                  <button
-                    type="button"
-                    title={'Edit behavior: ' + behavior.name}
-                    className="rw-button rw-button-small rw-button-blue mx-1"
-                    onClick={() => onDeleteClick(behavior.id)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    type="button"
-                    title={'Delete behavior: ' + behavior.name}
-                    className="rw-button rw-button-small rw-button-red mx-1"
-                    onClick={() => onDeleteClick(behavior.id)}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </td>
-            </tr>
+            />
           )
         })}
       </tbody>

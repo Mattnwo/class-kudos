@@ -62,7 +62,7 @@ const BehaviorForm = (props) => {
 
         <FieldError name="value" className="rw-field-error" />
 
-        {!props.groupId && (
+        {/* {!props.groupId && (
           <>
             <Label
               name="groupId"
@@ -81,7 +81,7 @@ const BehaviorForm = (props) => {
 
             <FieldError name="groupId" className="rw-field-error" />
           </>
-        )}
+        )} */}
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
