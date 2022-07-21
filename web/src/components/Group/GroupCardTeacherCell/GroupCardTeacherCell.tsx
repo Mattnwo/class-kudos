@@ -35,7 +35,6 @@ export const Success = ({
   FindGroupCardTeacherQuery,
   FindGroupCardTeacherQueryVariables
 >) => {
-  console.log(group.name, enrollmentsForGroup)
   const totalEnrolled = enrollmentsForGroup.length || 0
   const totalPoints =
     enrollmentsForGroup.reduce(
