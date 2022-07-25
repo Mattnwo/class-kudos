@@ -3,7 +3,7 @@ import { useState } from 'react'
 import EditRewardCell from 'src/components/Reward/EditRewardCell'
 import StyledDialog from 'src/components/Styled/StyledDialog/StyledDialog'
 
-// import DeleteBehaviorForm from '../DeleteBehaviorForm/DeleteBehaviorForm'
+import DeleteRewardForm from '../DeleteRewardForm/DeleteRewardForm'
 
 const RewardsForTeacherGroupOptionsRow = ({ reward }) => {
   const [editIsOpen, setEditIsOpen] = useState<boolean>(false)
@@ -53,10 +53,7 @@ const RewardsForTeacherGroupOptionsRow = ({ reward }) => {
               title={`Delete Reward: ${reward.name}`}
               description={`Type the name of the reward to delete. This action cannot be undone!`}
             >
-              {/* <DeleteBehaviorForm
-                behavior={behavior}
-                setIsOpen={setDeleteIsOpen}
-              /> */}
+              <DeleteRewardForm reward={reward} setIsOpen={setDeleteIsOpen} />
             </StyledDialog>
           </div>
         </td>
