@@ -16,7 +16,7 @@ const TeacherGroupNav = () => {
     navigate(routes.teacherGroup({ groupId: group.id }))
   }
   // Do not show nav if no group set, or on home page
-  if (!currentGroup || atHome) return null
+  if (atHome.match) return null
 
   return (
     <div className="pt-1">
