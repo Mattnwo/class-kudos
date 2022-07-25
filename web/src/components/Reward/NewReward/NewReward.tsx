@@ -1,6 +1,3 @@
-import { Dialog } from '@headlessui/react'
-
-import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
@@ -21,11 +18,12 @@ const NewReward = ({ groupId, isOpen, setIsOpen }) => {
     {
       onCompleted: () => {
         toast.success('Reward created')
-        navigate(routes.rewards())
+        setIsOpen(false)
       },
       onError: (error) => {
         toast.error(error.message)
       },
+      refetchQueries: ['RewardsForTeacherGroupOptionsQuery'],
     }
   )
 

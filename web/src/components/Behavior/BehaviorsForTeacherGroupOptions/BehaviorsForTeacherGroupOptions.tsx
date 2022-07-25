@@ -1,8 +1,4 @@
-import { useState } from 'react'
-
 import BehaviorsForTeacherGroupOptionsRow from 'src/components/Behavior/BehaviorsForTeacherGroupOptionsRow'
-import EditBehaviorCell from 'src/components/Behavior/EditBehaviorCell'
-import StyledDialog from 'src/components/Styled/StyledDialog/StyledDialog'
 
 type BehaviorsOfGroupProps = {
   behaviorsOfGroup: {

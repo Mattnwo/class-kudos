@@ -1,3 +1,5 @@
+import RewardsForTeacherGroupOptionsRow from 'src/components/Reward/RewardsForTeacherGroupOptionsRow'
+
 type RewardsOfGroupProps = {
   rewardsOfGroup: {
     id: string
@@ -19,35 +21,7 @@ const RewardsForTeacherGroupOptions = ({
         </tr>
         {rewardsOfGroup.map((reward) => {
           return (
-            <tr
-              className={`font-body text-indigo-900 hover:bg-indigo-100`}
-              key={reward.id}
-            >
-              <td className="text-left rounded-l-lg px-4 py-3">
-                {reward.name}
-              </td>
-              <td className="text-right px-4 py-3">{reward.cost}</td>
-              <td className="text-right rounded-r-lg px-4 py-3 text-indigo-300">
-                <div className="flex justify-end gap-y-2">
-                  <button
-                    type="button"
-                    title={'Edit reward: ' + reward.name}
-                    className="rw-button rw-button-small rw-button-blue mx-1"
-                    onClick={() => onDeleteClick(behavior.id)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    type="button"
-                    title={'Delete reward: ' + reward.name}
-                    className="rw-button rw-button-small rw-button-red mx-1"
-                    onClick={() => onDeleteClick(reward.id)}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </td>
-            </tr>
+            <RewardsForTeacherGroupOptionsRow reward={reward} key={reward.id} />
           )
         })}
       </tbody>

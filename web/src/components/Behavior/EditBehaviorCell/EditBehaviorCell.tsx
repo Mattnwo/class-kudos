@@ -46,6 +46,7 @@ export const Success = ({
       },
       onError: (error) => {
         toast.error(error.message)
+        setIsOpen(false)
       },
     }
   )

@@ -3,7 +3,6 @@ import type { EditRewardById } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
-import { navigate, routes } from '@redwoodjs/router'
 
 import RewardForm from 'src/components/Reward/RewardForm'
 
@@ -38,29 +37,34 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div className="rw-cell-error">{error.message}</div>
 )
 
-export const Success = ({ reward }: CellSuccessProps<EditRewardById>) => {
-  const [updateReward, { loading, error }] = useMutation(UPDATE_REWARD_MUTATION, {
-    onCompleted: () => {
-      toast.success('Reward updated')
-      navigate(routes.rewards())
-    },
-    onError: (error) => {
-      toast.error(error.message)
-    },
-  })
+export const Success = ({
+  reward,
+  setIsOpen,
+}: CellSuccessProps<EditRewardById>) => {
+  const [updateReward, { loading, error }] = useMutation(
+    UPDATE_REWARD_MUTATION,
+    {
+      onCompleted: () => {
+        toast.success('Reward updated')
+        setIsOpen(false)
+      },
+      onError: (error) => {
+        toast.error(error.message)
+        setIsOpen(false)
+      },
+    }
+  )
 
   const onSave = (input, id) => {
     updateReward({ variables: { id, input } })
   }
 
   return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">Edit Reward {reward.id}</h2>
-      </header>
-      <div className="rw-segment-main">
-        <RewardForm reward={reward} onSave={onSave} error={error} loading={loading} />
-      </div>
-    </div>
+    <RewardForm
+      reward={reward}
+      onSave={onSave}
+      error={error}
+      loading={loading}
+    />
   )
 }

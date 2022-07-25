@@ -21,7 +21,7 @@ const RewardForm = (props) => {
     const dataWithGroupId = props.groupId
       ? { groupId: props.groupId, ...data }
       : data
-    props.onSave(dataWithGroupId, props?.behavior?.id)
+    props.onSave(dataWithGroupId, props?.reward?.id)
   }
 
   return (
@@ -113,7 +113,7 @@ const RewardForm = (props) => {
           </>
         )}
 
-        {!props.groupId && (
+        {/* {!props.groupId && (
           <>
             <Label
               name="groupId"
@@ -132,7 +132,7 @@ const RewardForm = (props) => {
 
             <FieldError name="groupId" className="rw-field-error" />
           </>
-        )}
+        )} */}
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
