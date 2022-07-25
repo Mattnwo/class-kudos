@@ -1,11 +1,15 @@
 import { useState, useContext, createContext } from 'react'
 
+type TeacherGroup = {
+  id: string
+  name: string
+}
+
 type TeacherGroupsContextProperties = {
-  teacherGroups: {
-    id: string
-    name: string
-  }[]
-  setTeacherGroups: (groups: []) => void
+  teacherGroups: TeacherGroup[]
+  currentGroup: TeacherGroup
+  setTeacherGroups: (groups: [TeacherGroup?]) => void
+  setCurrentGroup: (group: TeacherGroup) => void
 }
 
 const TeacherGroupsContext =
@@ -18,13 +22,18 @@ const TeacherGroupsContextProvider = ({
   children?: React.ReactNode
 }) => {
   const [teacherGroups, setTeacherGroups] = useState(null)
+  const [currentGroup, setCurrentGroup] = useState(null)
 
   return (
     <TeacherGroupsContext.Provider
       value={{
         teacherGroups: teacherGroups,
+        currentGroup: currentGroup,
         setTeacherGroups: (groups) => {
           setTeacherGroups(groups)
+        },
+        setCurrentGroup: (group) => {
+          setCurrentGroup(group)
         },
       }}
     >

@@ -1,5 +1,7 @@
 import { navigate, routes } from '@redwoodjs/router'
 
+import { useTeacherGroups } from 'src/context/TeacherGroupsContext'
+
 const GroupCardTeacher = ({
   group,
   totalPoints = 0,
@@ -7,10 +9,15 @@ const GroupCardTeacher = ({
   loading,
 }) => {
   const { id, name, description, enrollId } = group
+  const { setCurrentGroup } = useTeacherGroups()
   return (
     <button
       className="h-[200px] w-[300px] border-indigo-300 border-[1px] rounded-[10px] overflow-hidden hover:shadow-lg text-left"
       onClick={() => {
+        setCurrentGroup({
+          id,
+          name,
+        })
         navigate(routes.teacherGroup({ groupId: id }))
       }}
     >

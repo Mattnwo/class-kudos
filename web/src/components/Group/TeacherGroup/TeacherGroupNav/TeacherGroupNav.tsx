@@ -1,58 +1,27 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment } from 'react'
 
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
-import type {
-  FindGroupsForTeacherQuery,
-  FindGroupsForTeacherQueryVariables,
-} from 'types/graphql'
 
-import { NavLink, navigate, routes } from '@redwoodjs/router'
-import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+import { NavLink, navigate, routes, useMatch } from '@redwoodjs/router'
 
 import { useTeacherGroups } from 'src/context/TeacherGroupsContext'
 
-export const QUERY = gql`
-  query groupsOwned($userId: String!) {
-    groupsOwned(userId: $userId) {
-      id
-      type
-      name
-      description
-      enrollId
-    }
-  }
-`
-
-export const Loading = () => <div>Loading...</div>
-
-export const Empty = () => <div>Empty</div>
-
-export const Failure = ({
-  error,
-}: CellFailureProps<FindGroupsForTeacherQueryVariables>) => (
-  <div style={{ color: 'red' }}>Error: {error.message}</div>
-)
-
-export const Success = ({
-  groupsOwned,
-}: CellSuccessProps<FindTeacherNavQuery, FindTeacherNavQueryVariables>) => {
-  const [currentGroup, setCurrentGroup] = useState(groupsOwned[0])
-  const { setTeacherGroups } = useTeacherGroups()
-
-  useEffect(() => {
-    setTeacherGroups(groupsOwned)
-  }, [groupsOwned, setTeacherGroups])
+const TeacherGroupNav = () => {
+  const { currentGroup, setCurrentGroup, teacherGroups } = useTeacherGroups()
+  const atHome = useMatch(routes.teacherHome())
 
   const changeGroup = (group) => {
     setCurrentGroup(group)
     navigate(routes.teacherGroup({ groupId: group.id }))
   }
+  // Do not show nav if no group set, or on home page
+  if (!currentGroup || atHome) return null
 
   return (
     <div className="pt-1">
       <Listbox
-        value={currentGroup.name}
+        value={currentGroup?.name}
         onChange={(group) => changeGroup(group)}
       >
         <Listbox.Button className="font-body relative w-full cursor-default rounded-lg bg-indigo-600 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-indigo-300 sm:text-sm">
@@ -70,7 +39,7 @@ export const Success = ({
           leaveTo="opacity-0"
         >
           <Listbox.Options className="font-body absolute mt-1 max-h-60 w-[300px] overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-            {groupsOwned.map((group, index) => (
+            {teacherGroups.map((group, index) => (
               <Listbox.Option
                 key={index}
                 className={({ active }) =>
@@ -136,3 +105,5 @@ export const Success = ({
     </div>
   )
 }
+
+export default TeacherGroupNav
