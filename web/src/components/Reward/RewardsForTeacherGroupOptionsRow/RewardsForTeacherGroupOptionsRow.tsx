@@ -16,7 +16,7 @@ const RewardsForTeacherGroupOptionsRow = ({ reward }) => {
         key={reward.id}
       >
         <td className="text-left rounded-l-lg px-4 py-3">{reward.name}</td>
-        <td className="text-right px-4 py-3">{reward.value}</td>
+        <td className="text-right px-4 py-3">{reward.cost}</td>
         <td className="text-right rounded-r-lg px-4 py-3 text-indigo-300">
           <div className="flex justify-end gap-y-2">
             <button
