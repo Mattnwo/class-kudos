@@ -8,6 +8,7 @@ import DeleteBehaviorForm from '../DeleteBehaviorForm/DeleteBehaviorForm'
 const BehaviorsForTeacherGroupOptionsRow = ({ behavior }) => {
   const [editIsOpen, setEditIsOpen] = useState<boolean>(false)
   const [deleteIsOpen, setDeleteIsOpen] = useState<boolean>(false)
+
   return (
     <>
       <tr

@@ -1,5 +1,3 @@
-import { Dialog } from '@headlessui/react'
-
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
