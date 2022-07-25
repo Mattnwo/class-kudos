@@ -8,7 +8,6 @@ import type {
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 import DashboardHomeButton from 'src/components/DashboardHomeButton/DashboardHomeButton'
-import TeacherGroupCell from 'src/components/Group/TeacherGroup/TeacherGroupCell/TeacherGroupCell'
 import TeacherGroupNav from 'src/components/Group/TeacherGroup/TeacherGroupNav/TeacherGroupNav'
 import { useTeacherGroups } from 'src/context/TeacherGroupsContext'
 import DashboardPageLayout from 'src/layouts/DashboardPageLayout/DashboardPageLayout'
@@ -44,7 +43,7 @@ export const Success = ({
 
   useEffect(() => {
     groupsContext.setTeacherGroups(groupsOwned)
-  }, [groupsOwned, children, userId])
+  }, [groupsOwned, children, userId, groupsContext])
 
   return (
     <div className="flex h-[calc(100%_-_5rem)] border-indigo-200 border-t">
