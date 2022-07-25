@@ -43,6 +43,9 @@ export const Success = ({
 
   useEffect(() => {
     groupsContext.setTeacherGroups(groupsOwned)
+    if (!groupsContext.currentGroup && groupsOwned.length > 0) {
+      groupsContext.setCurrentGroup(groupsOwned[0])
+    }
   }, [groupsOwned, children, userId, groupsContext])
 
   return (

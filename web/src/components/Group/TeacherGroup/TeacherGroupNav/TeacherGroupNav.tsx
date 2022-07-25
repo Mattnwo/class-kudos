@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
@@ -15,8 +15,9 @@ const TeacherGroupNav = () => {
     setCurrentGroup(group)
     navigate(routes.teacherGroup({ groupId: group.id }))
   }
+
   // Do not show nav if no group set, or on home page
-  if (atHome.match) return null
+  if (atHome.match || !currentGroup) return null
 
   return (
     <div className="pt-1">
